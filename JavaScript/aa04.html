@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>test</title>
+</head>
+
+<body>
+  <script>
+    // 用callback的方式解決
+    setTimeout(function () {
+      console.log("1");
+      setTimeout(function () {
+        console.log("2");
+        setTimeout(function () {
+          console.log("3");
+        }, 2000)
+      }, 500);
+    }, 2000);
+  </script>
+</body>
+
+</html>
