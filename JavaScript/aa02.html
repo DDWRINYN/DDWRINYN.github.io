@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>test</title>
+</head>
+
+<body>
+  <script>
+    // 回傳一個promise
+    // 呼叫一個引數的建構子產生promise物件, 此引數為一個無名函式
+    // 此無名函式之參數為resolve, reject兩個函式
+    // 此函式負責決定要呼叫resolve還是reject
+    // resolve函式的引數為執行成功時要回傳的內容
+    // reject函式的引數為執行失敗時要回傳的內容
+    function sendHello() {
+      return new Promise((resolve, reject) => {
+        resolve("Hello");}
+      )
+    }
+    // async會回傳一個promise, 此例直接回傳sendHello()傳過來的promise
+    // 內容就在那個promise裡的resolve或reject函式的引數
+    async function getHello() {
+      // await會等待hello()函式執行結束回傳的那一個promise
+      // await一定要在async的函式裡
+      let greet = await sendHello();
+      return greet;
+    }
+
+    getHello().then(console.log);
+  </script>
+</body>
+</html>
